@@ -1,0 +1,25 @@
+header{
+    min-height: 70px;
+    width: 100%;
+    overflow: hidden;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 20px;
+    background: #fff;
+}
+header .navbar-brand{
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    flex: 1;
+}
+header ul li{
+    display: inline-block;
+    opacity: 0.5;
+    padding: 0 20px;
+}
+header ul li:hover{
+    opacity: 1;
+}
