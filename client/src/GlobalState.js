@@ -6,7 +6,6 @@ import CategoriesAPI from "./api/CategoriesAPI";
 import axios from "axios";
 
 export const GlobalState = createContext();
-
 export const DataProvider = ({children}) => {
 
     const [token, setToken] = useState(false)

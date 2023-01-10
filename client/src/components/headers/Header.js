@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom'
 import axios from 'axios'
 
 function Header() {
-
     const state = useContext(GlobalState)
     const [isLogged] = state.userAPI.isLogged
     const [isAdmin] = state.userAPI.isAdmin
@@ -90,6 +89,7 @@ function Header() {
 
 
                         {(isAdmin && adminRouter())}
+
                         {
                             isLogged ? loggedRouter() : 
                             <li className="nav-item" style={{color: 'white'}}>

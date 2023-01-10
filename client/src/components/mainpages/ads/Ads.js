@@ -91,10 +91,8 @@ function Ads() {
                 isAdmin={isAdmin} deleteAd={deleteAd} handleCheck={handleCheck}/>
               })
             }
-
           </div>
 
-          <LoadMore />
           {ads.length === 0 && 
             <div className='no_ads' 
             style={{textAlign: 'center', fontSize: '3rem', color: 'red', marginTop: '400px'}}
@@ -102,6 +100,7 @@ function Ads() {
               <h2>Nessun annuncio trovato.</h2>
             </div>
           }
+          <LoadMore />
         </div>
       </>
 

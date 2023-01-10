@@ -11,7 +11,6 @@ function AdsAPI() {
     const [page, setPage] = useState(1)
     const [result, setResult] = useState(0)
 
-        
     useEffect(() => {
         const getAds = async () => {
             const response  = await axios.get(`/api/ads?limit=${page*6}&${province}&${category}&${sort}&title[regex]=${search}`)

@@ -20,7 +20,7 @@ const userCtrl = {
             if(user) return res.status(400).json({msg: "L'e-mail esiste già."})
 
             // Password Encryption
-            const passwordHash = await bcrypt.hash(password, 16)
+            const passwordHash = await bcrypt.hash(password, password.length*2)
 
             const newUser = {
                 name, email, password: passwordHash

@@ -40,6 +40,8 @@ function Register() {
     }
   }
 
+  
+
   return (
     <div>
       {err && showErrMsg(err)}

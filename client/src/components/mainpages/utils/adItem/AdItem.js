@@ -20,8 +20,10 @@ function AdItem({ad, isAdmin, deleteAd, handleCheck}) {
                 />
             }
 
-            <img className="card-img-top" src={ad.images[0].url} alt={ad.images[0].url}
-            style={{ height: '250px', objectFit: 'cover' }} />
+            <a href={`/detail/${ad._id}`}>
+                <img className="card-img-top" src={ad.images[0].url} alt={ad.images[0].url}
+                style={{ height: '250px', objectFit: 'cover' } } />
+            </a>
             
         
             <div className="card-body">

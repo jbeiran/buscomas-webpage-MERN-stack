@@ -49,11 +49,13 @@ function BtnRender({ad, deleteAd}) {
                 }}
                 onClick={() => addFav(ad)}
                 >
-                    <i className='fa-solid fa-heart text-danger position-relative' aria-hidden="true">
-                    </i>
+                    <i className='fa-solid fa-heart text-danger position-relative' aria-hidden="true" 
+                    style={{
+                        fontSize: '20px',
+                        transition: 'all 0.3s ease',
+                        transform: 'scale(1.2)'
+                    }}></i>
                 </button>
-
-            
             </>
             }
         </>

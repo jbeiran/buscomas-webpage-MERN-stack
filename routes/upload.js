@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 const cloudinary = require('cloudinary');
 const auth = require('../middleware/auth');
 const authAdmin = require('../middleware/authAdmin');
@@ -11,7 +11,7 @@ cloudinary.config({
     api_secret: process.env.CLOUD_API_SECRET
 });
 
-// Upload image only Admin can upload
+//Upload image only Admin can upload
 router.post('/upload', auth, authAdmin, (req, res) => {
     try {
         if (!req.files || Object.keys(req.files).length === 0)
@@ -31,9 +31,7 @@ router.post('/upload', auth, authAdmin, (req, res) => {
 
         cloudinary.v2.uploader.upload(file.tempFilePath, { folder: "test" }, async (err, result) => {
             if (err) throw err;
-
             removeTmp(file.tempFilePath)
-
             res.json({ public_id: result.public_id, url: result.secure_url })
         })
 
@@ -42,7 +40,7 @@ router.post('/upload', auth, authAdmin, (req, res) => {
     }
 })
 
-// Delete image only Admin can delete
+//Delete image only Admin can delete
 router.post('/destroy', auth, authAdmin, (req, res) => {
     try {
         const { public_id } = req.body;
