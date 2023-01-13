@@ -9,7 +9,7 @@ function LoadMore() {
     return (
         <div className='load_more'>
             {
-                result < page * 9 ? ""
+                result < page * 6 ? ""
                 : <button onClick={() => setPage(page + 1)}>Carica di più</button>  
             }
         </div>

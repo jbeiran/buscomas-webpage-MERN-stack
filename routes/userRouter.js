@@ -13,6 +13,8 @@ router.post('/forgot', userCtrl.forgotPassword);
 
 router.post('/reset', auth, userCtrl.resetPassword);
 
+router.post('/contact', userCtrl.contact);
+
 router.get('/logout', userCtrl.logout);
 
 router.get('/refresh_token', userCtrl.refreshToken);

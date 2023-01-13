@@ -5,6 +5,7 @@ import axios from 'axios'
 import Loading from '../utils/loading/Loading'
 import Filters from './Filters'
 import LoadMore from './LoadMore'
+import ButtonUp from './ButtonUp'
 
 function Ads() {
 
@@ -17,7 +18,7 @@ function Ads() {
     const [isCheck, setIsCheck] = useState(false)
 
     useEffect(() => {
-      document.title = 'Home'
+      document.title = 'Buscomas - Home'
     }, [])
 
     const handleCheck = (id) => {
@@ -93,6 +94,9 @@ function Ads() {
             }
           </div>
 
+          <ButtonUp />
+          <LoadMore />
+
           {ads.length === 0 && 
             <div className='no_ads' 
             style={{textAlign: 'center', fontSize: '3rem', color: 'red', marginTop: '400px'}}
@@ -100,7 +104,7 @@ function Ads() {
               <h2>Nessun annuncio trovato.</h2>
             </div>
           }
-          <LoadMore />
+
         </div>
       </>
 

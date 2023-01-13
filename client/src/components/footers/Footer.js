@@ -9,7 +9,7 @@ function Footer() {
                     <div className='col'>
                         <h4> BUSCOMAS </h4>
                         <ul className='list-unstyled'>
-                            <li> Numero de teléfono </li>
+                            <li> 628 33 87 58 </li>
                             <li> Isole Canarie, Spagna </li>
                         </ul>
                     </div>
@@ -34,9 +34,7 @@ function Footer() {
                     <div className='col'>
                         <h4> SOCIAL MEDIA </h4>
                         <ul className='list-unstyled'>
-                            <li> Facebook </li>
-                            <li> Instagram </li>
-                            <li> Twitter </li>
+                            <li> Prossimamente... </li>
                         </ul>
                     </div>
                 </div>

@@ -7,6 +7,7 @@ const path = require('path')
 const dotenv = require('dotenv');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
+const vhost = require("vhost");
 
 dotenv.config();
 const app = express();
@@ -20,6 +21,13 @@ app.use(cors());
 app.use(fileupload({
     useTempFiles: true
 }));
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log('Server is running on port', PORT);
+})
+
+app.use(vhost("buscomas.com", app));
 
 // Routes
 app.use('/user', require('./routes/userRouter'));
@@ -45,7 +53,3 @@ if(process.env.NODE_ENV === 'production') {
     })
 }
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log('Server is running on port', PORT);
-})
