@@ -17,11 +17,14 @@ function DetailAd() {
     }
     
     useEffect(() => {
+        
         if(params.id){
             ads.forEach(ad => {
                 if(ad._id === params.id) setDetailAd(ad)
             })
         }
+
+        window.scrollTo(0, 0)
     },[params.id, ads])
 
     if(detailAd.length === 0) return null;
@@ -29,9 +32,10 @@ function DetailAd() {
     return (
         <>
             <div className='row detail_page'>
-                <div className='col-md-6'>
+                <div className='col-md-6 mt-3'>
+                    
                     <img src={detailAd.images[tab].url} alt={detailAd.images[tab].url}
-                    className="d-block img-thumbnail rounded mt-4 w-100"
+                    className="img-fluid rounded"
                     style={{height: '500px'}}/>
 
                     <div className="row mx-0" style={{cursor: 'pointer', marginTop: '10px'}}>
@@ -58,7 +62,7 @@ function DetailAd() {
                         position: 'absolute',
                         zIndex: 1,
                         right: '0',
-                        top: '0',
+                        top: '10',
                         color: 'black',
                         padding: '5px 10px',
                         borderRadius: '0 0 0 5px',
@@ -74,6 +78,26 @@ function DetailAd() {
                     <div className="row justify-content-between mx-0">
                         <h6 className="text-danger">{detailAd.phone}</h6>
                     </div>
+
+                    {detailAd.phone2 ?
+                    <div className="row justify-content-between mx-0 mt-1">
+                        <h6 className="text-danger">{detailAd.phone2}</h6>
+                    </div> : null}
+
+                    {detailAd.phone3 ?
+                    <div className="row justify-content-between mx-0 mt-1">
+                        <h6 className="text-danger">{detailAd.phone3}</h6>
+                    </div> : null}
+
+                    {detailAd.phone4 ?
+                    <div className="row justify-content-between mx-0 mt-1">
+                        <h6 className="text-danger">{detailAd.phone4}</h6>
+                    </div> : null}
+
+                    {detailAd.phone5 ?
+                    <div className="row justify-content-between mx-0 mt-1">
+                        <h6 className="text-danger">{detailAd.phone5}</h6>
+                    </div> : null}        
 
                     <div className="my-2">{detailAd.description}</div>
                     <div className="my-2">{detailAd.content}</div><br></br>

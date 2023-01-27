@@ -46,8 +46,7 @@ function Ads() {
           const deleteAd = axios.delete(`/api/ads/${id}`,{
               headers: {Authorization: token}
           })      
-          
-          
+        
           await deleteImg
           await deleteAd
           setCallback(!callback)

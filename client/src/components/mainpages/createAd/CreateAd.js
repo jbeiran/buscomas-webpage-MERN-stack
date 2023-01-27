@@ -9,6 +9,10 @@ const initialState = {
     province: '',
     category: '',
     phone: '',	
+    phone2: '',
+    phone3: '',
+    phone4: '',
+    phone5: '',
     content: '',
     date: new Date().toLocaleDateString(),
     id: ''
@@ -129,18 +133,18 @@ function CreateAd() {
                 <div className='col-md-6'>
 
                     <input type="text" name="title" 
-                    id="title" placeholder="Title" 
+                    id="title" placeholder="Nome" 
                     value={ad.title} className="d-block my-4 w-100 p-2" 
                     onChange={handleChangeInput} />
         
                     <textarea type="text" name="description"
-                    id="description" placeholder="Description"
+                    id="description" placeholder="Titolo"
                     value={ad.description} className="d-block my-4 w-100 p-2"
                     onChange={handleChangeInput} 
                     cols="30" rows="4"/>
 
                     <textarea type="text" name="content"
-                    id="content" placeholder="Content"
+                    id="content" placeholder="Testo"
                     value={ad.content} className="d-block my-4 w-100 p-2"
                     onChange={handleChangeInput} 
                     cols="30" rows="6"/>
@@ -148,6 +152,26 @@ function CreateAd() {
                     <input type="text" name="phone"
                     id="phone" placeholder="Phone"
                     value={ad.phone} className="d-block my-4 w-100 p-2"
+                    onChange={handleChangeInput} />
+
+                    <input type="text" name="phone2"
+                    id="phone2" placeholder="Phone 2"
+                    value={ad.phone2} className="d-block my-4 w-100 p-2"
+                    onChange={handleChangeInput} />
+
+                    <input type="text" name="phone3"
+                    id="phone3" placeholder="Phone 3"
+                    value={ad.phone3} className="d-block my-4 w-100 p-2"
+                    onChange={handleChangeInput} />
+
+                    <input type="text" name="phone4"
+                    id="phone4" placeholder="Phone 4"
+                    value={ad.phone4} className="d-block my-4 w-100 p-2"
+                    onChange={handleChangeInput} />
+
+                    <input type="text" name="phone5"
+                    id="phone5" placeholder="Phone 5"
+                    value={ad.phone5} className="d-block my-4 w-100 p-2"
                     onChange={handleChangeInput} />
 
                     <div className='row'>
@@ -268,7 +292,7 @@ function CreateAd() {
                             </select>
                         </div>
 
-                        <div className="col-sm-6">
+                        <div className='col-sm-6'>
                             <select name="category" value={ad.category} className="d-block w-100 p-2" onChange={handleChangeInput}>
                                 <option value="">Categoria</option>
                                 {

@@ -19,13 +19,10 @@ function AdItem({ad, isAdmin, deleteAd, handleCheck}) {
                 onChange={() => handleCheck(ad._id)}
                 />
             }
-
-            <a href={`/detail/${ad._id}`}>
-                <img className="card-img-top" src={ad.images[0].url} alt={ad.images[0].url}
-                style={{ height: '250px', objectFit: 'cover' } } />
-            </a>
             
-        
+            <img className="card-img-top" src={ad.images[0].url} alt={ad.images[0].url}
+                style={{ height: '250px', objectFit: 'cover' } } />
+
             <div className="card-body">
 
                 <Link to={`/detail/${ad._id}`} style={{textDecoration: 'none'}}>

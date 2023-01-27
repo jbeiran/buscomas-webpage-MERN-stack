@@ -7,7 +7,6 @@ const path = require('path')
 const dotenv = require('dotenv');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
-const vhost = require("vhost");
 
 dotenv.config();
 const app = express();
@@ -22,22 +21,16 @@ app.use(fileupload({
     useTempFiles: true
 }));
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log('Server is running on port', PORT);
-})
-
-app.use(vhost("buscomas.com", app));
-
 // Routes
 app.use('/user', require('./routes/userRouter'));
 app.use('/api', require('./routes/categoryRouter'));
 app.use('/api', require('./routes/upload'));
 app.use('/api', require('./routes/adRouter'));
 
-
 // Connect to MongoDB
 const URI = process.env.MONGODB_URL;
+mongoose.set("strictQuery", false);
+
 mongoose.connect(URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -52,4 +45,9 @@ if(process.env.NODE_ENV === 'production') {
         res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
     })
 }
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log('Server is running on port', PORT);
+})
 

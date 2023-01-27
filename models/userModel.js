@@ -24,10 +24,6 @@ const userSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    avatar: {
-        type: String,
-        default: 'https://res.cloudinary.com/dq2fjotxm/image/upload/v1669129270/website/Avatar/blank-profile-picture-973460__340_jwg8jj.jpg'
-    },
     fav: {
         type: Array,
         default: []

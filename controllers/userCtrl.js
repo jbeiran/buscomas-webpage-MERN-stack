@@ -9,6 +9,7 @@ const userCtrl = {
     register: async (req, res) => {
         try{
             const {name, email, password} = req.body;
+            const user = await Users.findOne({email})
 
             if(!name || !email || !password) return res.status(400).json({msg: "Per favore, inserisci tutti i campi."})
 
@@ -16,29 +17,39 @@ const userCtrl = {
 
             if(!validateEmail(email)) return res.status(400).json({msg: "L'e-mail non è valida."})
 
-            const user = await Users.findOne({email})
+            
             if(user) return res.status(400).json({msg: "L'e-mail esiste già."})
 
             // Password Encryption
-            const passwordHash = await bcrypt.hash(password, password.length*2)
-
-            const newUser = {
+            const passwordHash = await bcrypt.hash(password, 10)
+            const newUser = new Users({
                 name, email, password: passwordHash
-            }
+            })
+
+            await newUser.save()
 
             // Then create jsonwebtoken to authentication
-            const activation_token = createActivationToken(newUser)
+            const accesstoken = createAccessToken({id: newUser._id})
+            const refreshtoken = createRefreshToken({id: newUser._id})
 
-            const url = `${CLIENT_URL}/user/activate/${activation_token}`
+            res.cookie('refreshtoken', refreshtoken, {
+                httpOnly: true,
+                path: '/user/refresh_token',
+                maxAge: 7*24*60*60*1000 // 7 days
+            })
+
+            /*const url = `${CLIENT_URL}/user/activate/${activation_token}`
             sendMail(email, url, "Verifica la tua e-mail")
 
-            res.json({msg: "Registrazione avvenuta con successo! Controlla la tua e-mail per attivare il tuo account."})
+            res.json({msg: "Registrazione avvenuta con successo! Controlla la tua e-mail per attivare il tuo account."})*/
+
+            res.json({accesstoken})
 
         } catch(err){
             return res.status(500).json({msg: err.message});
         }
     },
-    activateEmail: async (req, res) => {
+    /*activateEmail: async (req, res) => {
         try {
             const {activation_token} = req.body;
             const user = jwt.verify(activation_token, process.env.ACTIVATION_TOKEN_SECRET)
@@ -59,7 +70,7 @@ const userCtrl = {
         } catch (err) {
             return res.status(500).json({msg: err.message});
         }
-    },
+    },*/
     login: async (req, res) => {
         try{
             const {email, password} = req.body;
@@ -199,8 +210,6 @@ const userCtrl = {
         } catch(err){
             return res.status(500).json({msg: err.message});
         }
-    },
-    contact: async (req, res) => {
     }
         
 }

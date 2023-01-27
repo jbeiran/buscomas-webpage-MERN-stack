@@ -21,6 +21,22 @@ const adSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    phone2: {
+        type: String,
+        trim: true
+    },
+    phone3: {
+        type: String,
+        trim: true
+    },
+    phone4: {
+        type: String,
+        trim: true
+    },
+    phone5: {
+        type: String,
+        trim: true
+    },
     content: {
         type: String,
         required: true,
@@ -32,7 +48,7 @@ const adSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        required: true
+        required: false
     },
     date: {
         type: String,

@@ -8,7 +8,7 @@ import Fav from './fav/Fav'
 import NotFound from './utils/not_found/NotFound'
 import Categories from './categories/Categories'
 import CreateAd from './createAd/CreateAd'
-import ActivationEmail from './auth/ActivationEmail'
+//import ActivationEmail from './auth/ActivationEmail'
 import ForgotPassword from './auth/ForgotPassword'
 import ResetPassword from './auth/ResetPassword'
 
@@ -27,7 +27,7 @@ function Pages() {
 
         <Route path="/login" exact element={isLogged ? <NotFound /> : <Login />} />
         <Route path="/register" exact element={isLogged ? <NotFound /> : <Register />} />
-        <Route path="/user/activate/:activation_token" exact element={<ActivationEmail />} />
+        {/*<Route path="/user/activate/:activation_token" exact element={<ActivationEmail />} />*/}
 
         <Route path="/forgot_password" exact element={isLogged ? <NotFound /> : <ForgotPassword />} />
         <Route path="/user/reset/:token" exact element={isLogged ? <NotFound /> : <ResetPassword />} />

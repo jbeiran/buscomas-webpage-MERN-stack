@@ -9,7 +9,6 @@ function Footer() {
                     <div className='col'>
                         <h4> BUSCOMAS </h4>
                         <ul className='list-unstyled'>
-                            <li> 628 33 87 58 </li>
                             <li> Isole Canarie, Spagna </li>
                         </ul>
                     </div>

@@ -58,7 +58,7 @@ const adCtrl = {
     },
     createAd: async (req, res) => {
         try{
-            const { title, description, province, phone, content, images, category, date } = req.body;
+            const { title, description, province, phone, phone2, phone3, phone4, phone5, content, images, category, date } = req.body;
             if(!validatephone(phone)) return res.status(400).json({ msg: "Numero di telefono non valido." });
             if(!images) return res.status(400).json({ msg: "Nessun caricamento di immagini" });
 
@@ -69,7 +69,7 @@ const adCtrl = {
             if(ad) return res.status(400).json({ msg: "Questo annuncio esiste già." });
 
             const newAd = new Ads({
-                title: title.toLowerCase(), description, province, phone, content, images, category, date
+                title: title.toLowerCase(), description, province, phone, phone2, phone3, phone4, phone5, content, images, category, date
             });
 
             await newAd.save();
@@ -90,12 +90,12 @@ const adCtrl = {
     },
     updateAd: async (req, res) => {
         try{
-            const { title, description, province, phone, content, images, category, date } = req.body;
+            const { title, description, province, phone, phone2, phone3, phone4, phone5, content, images, category, date } = req.body;
             if(!validatephone(phone)) return res.status(400).json({ msg: "Numero di telefono non valido." });
             if(!images) return res.status(400).json({ msg: "Nessun caricamento di immagini" });
 
             await Ads.findOneAndUpdate({ _id: req.params.id }, {
-                title: title.toLowerCase(), description, province, phone, content, images, category
+                title: title.toLowerCase(), description, province, phone, phone2, phone3, phone4, phone5, content, images, category, date
             });
 
             res.json({ msg: "Aggiornamento di un annuncio" });
@@ -105,9 +105,9 @@ const adCtrl = {
     }
 };
 
-const validatephone = (phone) => {
+const validatephone = (phones) => {
     const re = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g
-    return re.test(phone);
+    return re.test(phones);
 }
 
 module.exports = adCtrl;
