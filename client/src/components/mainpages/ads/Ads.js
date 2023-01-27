@@ -21,6 +21,7 @@ function Ads() {
       document.title = 'Buscomas - Home'
     }, [])
 
+    
     const handleCheck = (id) => {
       ads.forEach(ad => {
         if(ad._id === id) ad.checked = !ad.checked
@@ -65,7 +66,7 @@ function Ads() {
 
     if(loading) return <div className='ads'><Loading /></div>
 
-    return (
+    return (  
       <>
         <div>
           <Filters />

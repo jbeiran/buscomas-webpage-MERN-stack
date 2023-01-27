@@ -14,6 +14,7 @@ const initialState = {
     phone4: '',
     phone5: '',
     content: '',
+    zone : '',
     date: new Date().toLocaleDateString(),
     id: ''
 }
@@ -305,6 +306,12 @@ function CreateAd() {
                             </select>
                         </div>
                     </div>
+
+                    <input type="text" name="zone"
+                    id="zone" placeholder="Zona"
+                    value={ad.zone} className="d-block my-4 w-100 p-2"
+                    onChange={handleChangeInput} />
+
 
                     <input type="text" 
                         className="d-block my-4 w-100 p-2" 

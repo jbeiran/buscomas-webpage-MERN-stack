@@ -75,6 +75,9 @@ function DetailAd() {
                     <h5 className="text-danger">{detailAd.province}</h5>
                     <br></br>
 
+                    <h5 className="text-danger">{detailAd.zone}</h5>
+                    <br></br>
+
                     <div className="row justify-content-between mx-0">
                         <h6 className="text-danger">{detailAd.phone}</h6>
                     </div>

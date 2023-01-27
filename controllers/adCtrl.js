@@ -58,7 +58,7 @@ const adCtrl = {
     },
     createAd: async (req, res) => {
         try{
-            const { title, description, province, phone, phone2, phone3, phone4, phone5, content, images, category, date } = req.body;
+            const { title, description, province, phone, phone2, phone3, phone4, phone5, content, images, category, zone, date } = req.body;
             if(!validatephone(phone)) return res.status(400).json({ msg: "Numero di telefono non valido." });
             if(!images) return res.status(400).json({ msg: "Nessun caricamento di immagini" });
 
@@ -69,7 +69,7 @@ const adCtrl = {
             if(ad) return res.status(400).json({ msg: "Questo annuncio esiste già." });
 
             const newAd = new Ads({
-                title: title.toLowerCase(), description, province, phone, phone2, phone3, phone4, phone5, content, images, category, date
+                title: title.toLowerCase(), description, province, phone, phone2, phone3, phone4, phone5, content, images, category, zone, date
             });
 
             await newAd.save();
@@ -90,12 +90,12 @@ const adCtrl = {
     },
     updateAd: async (req, res) => {
         try{
-            const { title, description, province, phone, phone2, phone3, phone4, phone5, content, images, category, date } = req.body;
+            const { title, description, province, phone, phone2, phone3, phone4, phone5, content, images, category, zone, date } = req.body;
             if(!validatephone(phone)) return res.status(400).json({ msg: "Numero di telefono non valido." });
             if(!images) return res.status(400).json({ msg: "Nessun caricamento di immagini" });
 
             await Ads.findOneAndUpdate({ _id: req.params.id }, {
-                title: title.toLowerCase(), description, province, phone, phone2, phone3, phone4, phone5, content, images, category, date
+                title: title.toLowerCase(), description, province, phone, phone2, phone3, phone4, phone5, content, images, zone, category, date
             });
 
             res.json({ msg: "Aggiornamento di un annuncio" });

@@ -50,6 +50,11 @@ const adSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    zone: {
+        type: String,
+        required: false,
+        trim : true
+    },
     date: {
         type: String,
         required: true
